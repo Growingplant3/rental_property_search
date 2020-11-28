@@ -28,7 +28,7 @@ class RentHousesController < ApplicationController
 
     respond_to do |format|
       if @rent_house.save
-        format.html { redirect_to @rent_house, notice: 'Rent house was successfully created.' }
+        format.html { redirect_to @rent_house, notice: '物件情報が登録されました。' }
         format.json { render :show, status: :created, location: @rent_house }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class RentHousesController < ApplicationController
   def update
     respond_to do |format|
       if @rent_house.update(rent_house_params)
-        format.html { redirect_to @rent_house, notice: 'Rent house was successfully updated.' }
+        format.html { redirect_to @rent_house, notice: '物件情報が更新されました。' }
         format.json { render :show, status: :ok, location: @rent_house }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class RentHousesController < ApplicationController
   def destroy
     @rent_house.destroy
     respond_to do |format|
-      format.html { redirect_to rent_houses_url, notice: 'Rent house was successfully destroyed.' }
+      format.html { redirect_to rent_houses_url, notice: '物件情報が削除されました。' }
       format.json { head :no_content }
     end
   end
