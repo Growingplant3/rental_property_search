@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Rent Houses</h1>
+<h1><%= t('activerecord.models.rent_house') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Rent</th>
-      <th>Address</th>
-      <th>Age</th>
-      <th>Remarks</th>
+      <th><%= t('activerecord.attributes.rent_house.name') %></th>
+      <th><%= t('activerecord.attributes.rent_house.rent') %></th>
+      <th><%= t('activerecord.attributes.rent_house.address') %></th>
+      <th><%= t('activerecord.attributes.rent_house.age') %></th>
+      <th><%= t('activerecord.attributes.rent_house.remarks') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,13 +18,13 @@
     <% @rent_houses.each do |rent_house| %>
       <tr>
         <td><%= rent_house.name %></td>
-        <td><%= rent_house.rent %></td>
+        <td><%= rent_house.rent %>円</td>
         <td><%= rent_house.address %></td>
-        <td><%= rent_house.age %></td>
+        <td><%= rent_house.age %>年</td>
         <td><%= rent_house.remarks %></td>
-        <td><%= link_to 'Show', rent_house %></td>
-        <td><%= link_to 'Edit', edit_rent_house_path(rent_house) %></td>
-        <td><%= link_to 'Destroy', rent_house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '詳細', rent_house %></td>
+        <td><%= link_to '編集', edit_rent_house_path(rent_house) %></td>
+        <td><%= link_to '削除', rent_house, method: :delete, data: { confirm: '本当に削除してもよろしいですか?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Rent House', new_rent_house_path %>
+<%= link_to '物件を登録する', new_rent_house_path %>
