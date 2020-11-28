@@ -1,7 +1,7 @@
 ja:
   activerecord:
     models:
-      rent_house: 賃貸物件
+      rent_house: 物件一覧
     attributes:
       rent_house:
         name: 物件名
