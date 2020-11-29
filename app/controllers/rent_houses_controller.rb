@@ -10,11 +10,13 @@ class RentHousesController < ApplicationController
   # GET /rent_houses/1
   # GET /rent_houses/1.json
   def show
+    @nearest_stations = @rent_house.nearest_stations
   end
 
   # GET /rent_houses/new
   def new
     @rent_house = RentHouse.new
+    @rent_house.nearest_stations.build
   end
 
   # GET /rent_houses/1/edit
