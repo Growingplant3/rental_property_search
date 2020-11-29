@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>閲覧</h1>
+<% count = 0 %>
 
 <p>
   <%= t('activerecord.attributes.rent_house.name') %>:
@@ -9,7 +10,7 @@
 
 <p>
   <%= t('activerecord.attributes.rent_house.rent') %>:
-  <%= @rent_house.rent %>
+  <%= @rent_house.rent %>円
 </p>
 
 <p>
@@ -19,13 +20,33 @@
 
 <p>
   <%= t('activerecord.attributes.rent_house.age') %>:
-  <%= @rent_house.age %>
+  <%= @rent_house.age %>年
 </p>
 
 <p>
   <%= t('activerecord.attributes.rent_house.remarks') %>:
   <%= @rent_house.remarks %>
 </p>
+
+<hr>
+<% @nearest_stations.each do |station| %>
+  <% count += 1 %>
+  <h2><%= t('activerecord.models.nearest_station') %><%= count %></h2>
+  <p>
+    <%= t('activerecord.attributes.nearest_station.line_name') %>
+    <%= station.line_name %>
+  </p>
+
+  <p>
+    <%= t('activerecord.attributes.nearest_station.name') %>
+    <%= station.name %>
+  </p>
+
+  <p>
+    <%= t('activerecord.attributes.nearest_station.minutes_on_foot') %>
+    <%= station.minutes_on_foot %>分
+  </p>
+<% end %>
 
 <%= link_to '編集', edit_rent_house_path(@rent_house) %> |
 <%= link_to '戻る', rent_houses_path %>
