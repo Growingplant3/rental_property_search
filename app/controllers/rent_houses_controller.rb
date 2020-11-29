@@ -19,6 +19,7 @@ class RentHousesController < ApplicationController
 
   # GET /rent_houses/1/edit
   def edit
+    @rent_house.nearest_stations.build
   end
 
   # POST /rent_houses
