@@ -1,3 +1,4 @@
+<% count = 0 %>
 <%= form_with(model: rent_house, local: true) do |form| %>
   <% if rent_house.errors.any? %>
     <div id="error_explanation">
@@ -43,6 +44,8 @@
 
   <hr>
   <%= form.fields_for :nearest_stations do |f| %>
+    <% count += 1 %>
+    <h2><%= t('activerecord.models.nearest_station') %><%= count %></h2>
     <div class="field">
       <%= f.label :line_name %>
       <br>
