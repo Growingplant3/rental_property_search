@@ -1,0 +1,71 @@
+<% count = 0 %>
+<%= form_with(model: rent_house, local: true) do |form| %>
+  <% if rent_house.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rent_house.errors.count, "error") %> prohibited this rent_house from being saved:</h2>
+
+      <ul>
+      <% rent_house.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rent %>
+    <br>
+    <%= form.number_field :rent %>円
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <br>
+    <%= form.text_area :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <br>
+    <%= form.number_field :age %>年
+  </div>
+
+  <div class="field">
+    <%= form.label :remarks %>
+    <br>
+    <%= form.text_area :remarks %>
+  </div>
+
+  <hr>
+  <%= form.fields_for :nearest_stations do |f| %>
+    <% count += 1 %>
+    <h2><%= t('activerecord.models.nearest_station') %><%= count %></h2>
+    <div class="field">
+      <%= f.label :line_name %>
+      <br>
+      <%= f.text_field :line_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :name %>
+      <br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :minutes_on_foot %>
+      <br>
+      <%= f.number_field :minutes_on_foot %>分
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
