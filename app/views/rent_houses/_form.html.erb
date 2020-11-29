@@ -41,6 +41,27 @@
     <%= form.text_area :remarks %>
   </div>
 
+  <hr>
+  <%= form.fields_for :nearest_stations do |f| %>
+    <div class="field">
+      <%= f.label :line_name %>
+      <br>
+      <%= f.text_field :line_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :name %>
+      <br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :minutes_on_foot %>
+      <br>
+      <%= f.number_field :minutes_on_foot %>分
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
